@@ -45,7 +45,7 @@ function createStream (contents) {
   return s
 }
 
-function createBuffer(contents) {
+function createBuffer (contents) {
   return Buffer.from ? Buffer.from(contents) : new Buffer(contents)
 }
 
