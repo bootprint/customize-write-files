@@ -45,6 +45,10 @@ function createStream (contents) {
   return s
 }
 
+function createBuffer(contents) {
+  return Buffer.from ? Buffer.from(contents) : new Buffer(contents)
+}
+
 /**
  * Read the contents of a file in the tmpDir
  * @param filename
@@ -76,7 +80,7 @@ describe('customize-write-files:', function () {
     })
 
     it('should write a buffer correctly', function () {
-      return run('buffer.txt', Buffer.from('abc'))
+      return run('buffer.txt', createBuffer('abc'))
         .then(function (result) {
           expect(result).to.deep.equal(['test-output/buffer.txt'])
           expect(read('buffer.txt')).to.equal('abc')
@@ -104,7 +108,7 @@ describe('customize-write-files:', function () {
     it('should return a resolved promise with "false" for all files, if the contents matches all files', function () {
       return customizeWriteFiles.changed('test/fixtures/compare')({
         engine1: {
-          'buffer.txt': Buffer.from('buffer-test\n'),
+          'buffer.txt': createBuffer('buffer-test\n'),
           'stream.txt': createStream('stream-test\n')
         },
         engine2: {
@@ -123,7 +127,7 @@ describe('customize-write-files:', function () {
       it('a buffer-contents does not match', function () {
         return customizeWriteFiles.changed('test/fixtures/compare')({
           engine1: {
-            'buffer.txt': Buffer.from('bad buffer-test\n')
+            'buffer.txt': createBuffer('bad buffer-test\n')
           }
         }).then(function (result) {
           console.log(result)
@@ -151,7 +155,7 @@ describe('customize-write-files:', function () {
         return customizeWriteFiles.changed('test/fixtures/compare')({
           engine1: {
             'does-not-exist1.txt': createStream('abc'),
-            'does-not-exist2.txt': Buffer.from('abc'),
+            'does-not-exist2.txt': createBuffer('abc'),
             'does-not-exist3.txt': 'abc'
           }
         }).then(function (result) {
@@ -182,7 +186,7 @@ describe('customize-write-files:', function () {
       it('if one of multiple files does not match', function () {
         return customizeWriteFiles.changed('test/fixtures/compare')({
           engine1: {
-            'buffer.txt': Buffer.from('bad buffer-test\n'),
+            'buffer.txt': createBuffer('bad buffer-test\n'),
             'stream.txt': createStream('stream-test\n')
           },
           engine2: {
@@ -200,7 +204,7 @@ describe('customize-write-files:', function () {
       it('multiple files do not match', function () {
         return customizeWriteFiles.changed('test/fixtures/compare')({
           engine1: {
-            'buffer.txt': Buffer.from('bad buffer-test\n'),
+            'buffer.txt': createBuffer('bad buffer-test\n'),
             'stream.txt': createStream('stream-test\n')
           },
           engine2: {
