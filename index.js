@@ -77,6 +77,7 @@ function runExecutors (customizeResult, targetDir, executors) {
  * Return the values of an object
  * @param {object<any>} obj
  * @returns {Array<any>}
+ * @private
  */
 function values (obj) {
   return Object.keys(obj).map(function (key) {
@@ -89,6 +90,7 @@ function values (obj) {
  * @param {object<any>} obj
  * @param {function(any, string): any} fn
  * @returns {object<any>}
+ * @private
  */
 function mapValues (obj, fn) {
   return Object.keys(obj).reduce(function (subresult, key) {
