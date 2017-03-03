@@ -59,5 +59,11 @@
       "pre-push": "thoughtful precommit && standard"
     }
   },
-  "keywords": []
+  "keywords": [
+    "Customize",
+    "Write",
+    "Files",
+    "Post-processor",
+    "ghooks"
+  ]
 }
