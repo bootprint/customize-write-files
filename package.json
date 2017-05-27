@@ -37,7 +37,7 @@
     "stream-equal": "^1.0.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.0.0",
     "chai-as-promised": "^6.0.0",
     "customize": "^2.0.1",
     "customize-engine-less": "^2.0.0",
