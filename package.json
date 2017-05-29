@@ -33,7 +33,7 @@
     "debug": "^2.6.3",
     "deep-aplus": "^1.0.4",
     "mkdirp": "^0.5.1",
-    "pify": "^2.3.0",
+    "pify": "^3.0.0",
     "stream-equal": "^1.0.0"
   },
   "devDependencies": {
