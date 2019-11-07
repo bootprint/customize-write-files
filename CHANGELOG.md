@@ -3,6 +3,12 @@
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 <a name="current-release"></a>
+# Version 1.1.1 (Thu, 07 Nov 2019 21:19:41 GMT)
+
+* [57b663c](https://github.com/bootprint/customize-write-files/commit/57b663c) chore: bump m-io to 0.5.0, various other chores - Nils Knappmeier
+
+
+
 # Version 1.1.0 (Fri, 13 Jan 2017 12:59:22 GMT)
 
 * [ee6dc38](https://github.com/bootprint/customize-write-files/commit/ee6dc38) More tests to increase code coverage (#3) - Nils Knappmeier
