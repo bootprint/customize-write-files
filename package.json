@@ -17,12 +17,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "pretest": "standard --version || npm -g install standard",
     "test": "mocha && standard",
-    "preformat": "standard --version || npm -g install standard",
     "format": "standard --fix",
     "thought": "thought run -a",
-    "prethoughtcheck": "thought --version || npm -g install thought",
     "thoughtcheck": "thought check-engines",
     "version": "thoughtful changelog -o -a && npm run thought",
     "preversion": "npm run thoughtcheck"
@@ -34,7 +31,7 @@
   "dependencies": {
     "debug": "^2.2.0",
     "deep-aplus": "^1.0.4",
-    "m-io": "^0.3.1",
+    "m-io": "^0.5.0",
     "q": "^1.4.1",
     "stream-equal": "^0.1.12"
   },
@@ -45,6 +42,8 @@
     "customize-engine-less": "^1.0.0",
     "ghooks": "^1.0.3",
     "mocha": "^2.2.5",
+    "standard": "^14.3.1",
+    "thought": "^2.0.0",
     "thoughtful-release": "^0.3.1",
     "trace-and-clarify-if-possible": "^1.0.0"
   },
@@ -55,8 +54,11 @@
   },
   "config": {
     "ghooks": {
-      "pre-push": "thoughtful precommit && standard"
+      "pre-push": "standard"
     }
+  },
+  "publishConfig": {
+    "tag": "patch-1.x"
   },
   "keywords": []
 }

@@ -48,6 +48,7 @@ function createStream (contents) {
 }
 
 function createBuffer (contents) {
+  /* eslint-disable-next-line */
   return Buffer.from ? Buffer.from(contents) : new Buffer(contents)
 }
 
@@ -67,7 +68,7 @@ function run (filename, contents) {
   var files = {}
   files[filename] = contents
   return customizeWriteFiles(tmpDir)({
-    'engine1': files
+    engine1: files
   })
 }
 
@@ -100,6 +101,7 @@ describe('customize-write-files:', function () {
       return run('stream.txt', undefined)
         .then(function (result) {
           expect(result).to.deep.equal([undefined])
+          /* eslint-disable-next-line */
           expect(fs.existsSync('test-output/stream.txt')).to.be.false
         })
     })
@@ -269,7 +271,7 @@ describe('customize-write-files:', function () {
       return expect(customizeWriteFiles.changed('test-output')({
         engine1: {
           // Directory prohibits file read
-          'tmpdir': 'abc'
+          tmpdir: 'abc'
         }
       })).to.be.rejected
     })
